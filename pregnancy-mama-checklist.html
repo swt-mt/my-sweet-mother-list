@@ -316,6 +316,10 @@
       padding-bottom: 20px;
     }
 
+    .section-head > div {
+      min-width: 0;
+    }
+
     .section h2 {
       margin: 0;
       font-size: clamp(30px, 3.8vw, 52px);
@@ -330,6 +334,8 @@
       font-size: 15px;
       line-height: 1.72;
       white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .pill {
@@ -347,17 +353,18 @@
     }
 
     .table-wrap {
-      overflow: auto;
+      overflow-x: hidden;
+      overflow-y: visible;
       border: 1px solid var(--line);
       border-radius: var(--radius);
       background: rgba(255, 253, 248, 0.88);
       box-shadow: 0 14px 38px rgba(48, 62, 55, 0.08);
-      padding: 2px;
+      padding: 0;
     }
 
     table {
       width: 100%;
-      min-width: 1320px;
+      min-width: 0;
       border-collapse: collapse;
       table-layout: fixed;
     }
@@ -365,7 +372,7 @@
     th,
     td {
       border-bottom: 1px solid rgba(222, 214, 197, 0.9);
-      padding: 16px 16px;
+      padding: 14px 12px;
       vertical-align: middle;
       text-align: left;
     }
@@ -373,14 +380,15 @@
     th {
       color: #40504a;
       background: #efe6d7;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 900;
-      line-height: 1.2;
-      white-space: nowrap;
+      line-height: 1.18;
+      white-space: normal;
+      word-break: keep-all;
     }
 
     thead th {
-      height: 60px;
+      min-height: 56px;
       border-bottom: 2px solid rgba(65, 95, 75, 0.24);
       vertical-align: middle;
     }
@@ -402,25 +410,26 @@
     }
 
     .check-cell {
-      width: 64px;
+      width: 5%;
       text-align: center;
     }
 
     .week {
-      width: 118px;
+      width: 9%;
       color: var(--sage-dark);
       font-weight: 900;
       white-space: nowrap;
     }
 
     .item {
-      width: 220px;
+      width: 18%;
       font-size: 17px;
       font-weight: 900;
+      overflow-wrap: anywhere;
     }
 
     .quantity {
-      width: 160px;
+      width: 12%;
       color: #4b5d54;
       font-size: 14px;
       font-weight: 800;
@@ -429,11 +438,12 @@
     }
 
     .group {
-      width: 110px;
+      width: 7%;
       color: var(--rose);
       font-size: 14px;
       font-weight: 900;
-      white-space: nowrap;
+      white-space: normal;
+      overflow-wrap: anywhere;
     }
 
     .tip {
@@ -445,8 +455,8 @@
     }
 
     .brand {
-      width: 410px;
-      padding-left: 10px;
+      width: 31%;
+      padding-left: 14px;
       color: #35453f;
       line-height: 1.42;
       font-size: 13px;
@@ -464,7 +474,7 @@
     }
 
     .remark-cell {
-      width: 244px;
+      width: 18%;
     }
 
     .buy-check {
@@ -566,8 +576,13 @@
         white-space: normal;
       }
 
-      table {
-        min-width: 1260px;
+      th,
+      td {
+        padding: 12px 10px;
+      }
+
+      .brand {
+        padding-left: 12px;
       }
     }
 
@@ -594,12 +609,30 @@
         white-space: normal;
       }
 
-      .shell {
-        width: min(100% - 24px, 1560px);
+      th {
+        font-size: 12px;
       }
 
-      table {
-        min-width: 1280px;
+      td {
+        font-size: 13px;
+      }
+
+      .item {
+        font-size: 15px;
+      }
+
+      .brand {
+        font-size: 12px;
+      }
+
+      .brand small {
+        font-size: 11px;
+      }
+
+      .remark {
+        min-height: 32px;
+        height: 32px;
+        font-size: 12px;
       }
     }
   </style>
