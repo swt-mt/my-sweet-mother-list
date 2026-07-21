@@ -57,19 +57,34 @@
     .brand {
       display: inline-flex;
       align-items: center;
-      gap: 12px;
+      gap: 18px;
       font-weight: 900;
     }
 
     .mark {
-      width: 48px;
-      height: 48px;
+      width: 86px;
+      height: 86px;
       filter: drop-shadow(0 10px 18px rgba(65, 95, 75, 0.18));
     }
 
-    .brand span {
-      font-size: 24px;
+    .brand-copy {
+      display: block;
+    }
+
+    .brand-name {
+      margin: 0;
+      color: var(--ink);
+      font-size: clamp(32px, 4.2vw, 58px);
+      font-weight: 900;
       line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .brand-tagline {
+      margin-top: 9px;
+      color: var(--sage-dark);
+      font-size: 16px;
+      font-weight: 800;
     }
 
     .nav-link {
@@ -93,20 +108,6 @@
       align-items: center;
       min-height: calc(100vh - 112px);
       padding: 42px 0 26px;
-    }
-
-    .kicker {
-      display: inline-flex;
-      align-items: center;
-      min-height: 36px;
-      padding: 0 14px;
-      margin-bottom: 20px;
-      border: 1px solid rgba(201, 119, 102, 0.24);
-      border-radius: 999px;
-      color: #8d5147;
-      background: rgba(255, 253, 248, 0.74);
-      font-size: 15px;
-      font-weight: 900;
     }
 
     h1 {
@@ -308,14 +309,16 @@
           <path d="M49 31 C54 21 61 17 69 17 C67 25 61 31 49 31 Z" fill="#d9cf8e"/>
           <path d="M48 33 L48 70" fill="none" stroke="#fffdf8" stroke-width="4.5" stroke-linecap="round"/>
         </svg>
-        <span>半糖孕册</span>
+        <div class="brand-copy">
+          <p class="brand-name">半糖孕册</p>
+          <div class="brand-tagline">给妈妈的孕产准备工具</div>
+        </div>
       </a>
       <a class="nav-link" href="./pregnancy-mama-checklist.html">打开清单</a>
     </nav>
 
     <section class="hero" aria-label="半糖孕册品牌介绍">
       <div>
-        <div class="kicker">给年轻妈妈的孕产准备工具</div>
         <h1>孕期、待产、新生儿照顾，一张清单慢慢准备。</h1>
         <p class="lead">半糖孕册把待产准备、产后照护和新生儿用品放在同一个页面里。少一点焦虑囤货，多一点按阶段准备。</p>
         <div class="actions">
