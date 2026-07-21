@@ -1,9 +1,9 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>半塘孕册</title>
+  <title>半糖孕册</title>
   <style>
     :root {
       --ink: #24302c;
@@ -54,30 +54,30 @@
     }
 
     .shell {
-      width: min(1440px, calc(100% - 36px));
+      width: min(1560px, calc(100% - 40px));
       margin: 0 auto;
-      padding: 28px 0 54px;
+      padding: 30px 0 62px;
     }
 
     .hero {
-      min-height: 40vh;
+      min-height: 42vh;
       display: grid;
-      grid-template-columns: minmax(0, 1fr) 360px;
-      gap: 34px;
+      grid-template-columns: minmax(0, 1fr) 320px;
+      gap: 52px;
       align-items: center;
-      padding: 28px 0 24px;
+      padding: 34px 0 30px;
     }
 
     .title-block {
       position: relative;
-      padding: 18px 0 8px;
+      padding: 16px 0 8px;
     }
 
     .brand-lockup {
       display: flex;
       align-items: center;
       gap: 18px;
-      margin-bottom: 26px;
+      margin-bottom: 30px;
     }
 
     .brand-mark {
@@ -90,7 +90,7 @@
     .brand-name {
       margin: 0;
       color: var(--ink);
-      font-size: clamp(30px, 4vw, 54px);
+      font-size: clamp(32px, 4.2vw, 58px);
       font-weight: 900;
       line-height: 1;
       letter-spacing: 0;
@@ -99,65 +99,45 @@
     .brand-tagline {
       margin-top: 9px;
       color: var(--sage-dark);
-      font-size: 15px;
+      font-size: 16px;
       font-weight: 800;
     }
 
     .hero-kicker {
       display: inline-flex;
       align-items: center;
-      min-height: 34px;
-      padding: 0 12px;
-      margin-bottom: 16px;
+      min-height: 36px;
+      padding: 0 14px;
+      margin-bottom: 18px;
       border: 1px solid rgba(201, 119, 102, 0.24);
       border-radius: 999px;
       color: #8f5147;
       background: rgba(255, 253, 248, 0.68);
-      font-size: 14px;
+      font-size: 15px;
       font-weight: 900;
     }
 
     h1 {
-      max-width: 900px;
+      max-width: 980px;
       margin: 0;
-      font-size: clamp(38px, 5.8vw, 78px);
+      font-size: clamp(40px, 5.5vw, 80px);
       line-height: 1.04;
       font-weight: 900;
       letter-spacing: 0;
     }
 
     .lead {
-      max-width: 900px;
-      margin: 20px 0 0;
+      max-width: 980px;
+      margin: 22px 0 0;
       color: #4c5a53;
-      font-size: clamp(16px, 1.5vw, 20px);
-      line-height: 1.68;
-    }
-
-    .hero-notes {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 22px;
-    }
-
-    .hero-note {
-      display: inline-flex;
-      align-items: center;
-      min-height: 34px;
-      padding: 0 12px;
-      border-radius: 999px;
-      color: #455850;
-      background: rgba(255, 253, 248, 0.74);
-      border: 1px solid rgba(120, 146, 125, 0.2);
-      font-size: 14px;
-      font-weight: 800;
+      font-size: clamp(16px, 1.35vw, 19px);
+      line-height: 1.74;
     }
 
     .dashboard {
       display: grid;
-      gap: 14px;
-      padding: 18px;
+      gap: 16px;
+      padding: 20px;
       border: 1px solid rgba(65, 95, 75, 0.2);
       border-radius: var(--radius);
       background: rgba(255, 253, 248, 0.82);
@@ -322,8 +302,8 @@
     }
 
     .section {
-      margin: 0 0 38px;
-      padding-top: 10px;
+      margin: 0 0 48px;
+      padding-top: 14px;
     }
 
     .section-head {
@@ -331,24 +311,24 @@
       grid-template-columns: minmax(0, 1fr) auto;
       gap: 18px;
       align-items: end;
-      margin: 0 0 14px;
+      margin: 0 0 20px;
       border-bottom: 2px solid rgba(65, 95, 75, 0.24);
-      padding-bottom: 15px;
+      padding-bottom: 20px;
     }
 
     .section h2 {
       margin: 0;
-      font-size: clamp(28px, 4vw, 48px);
+      font-size: clamp(30px, 3.8vw, 52px);
       letter-spacing: 0;
       line-height: 1.12;
     }
 
     .section p {
       max-width: none;
-      margin: 10px 0 0;
+      margin: 14px 0 0;
       color: var(--muted);
       font-size: 15px;
-      line-height: 1.55;
+      line-height: 1.72;
       white-space: nowrap;
     }
 
@@ -372,6 +352,7 @@
       border-radius: var(--radius);
       background: rgba(255, 253, 248, 0.88);
       box-shadow: 0 14px 38px rgba(48, 62, 55, 0.08);
+      padding: 2px;
     }
 
     table {
@@ -384,7 +365,7 @@
     th,
     td {
       border-bottom: 1px solid rgba(222, 214, 197, 0.9);
-      padding: 10px 12px;
+      padding: 16px 16px;
       vertical-align: middle;
       text-align: left;
     }
@@ -399,7 +380,7 @@
     }
 
     thead th {
-      height: 50px;
+      height: 60px;
       border-bottom: 2px solid rgba(65, 95, 75, 0.24);
       vertical-align: middle;
     }
@@ -426,20 +407,20 @@
     }
 
     .week {
-      width: 112px;
+      width: 118px;
       color: var(--sage-dark);
       font-weight: 900;
       white-space: nowrap;
     }
 
     .item {
-      width: 190px;
+      width: 220px;
       font-size: 17px;
       font-weight: 900;
     }
 
     .quantity {
-      width: 145px;
+      width: 160px;
       color: #4b5d54;
       font-size: 14px;
       font-weight: 800;
@@ -448,7 +429,7 @@
     }
 
     .group {
-      width: 92px;
+      width: 110px;
       color: var(--rose);
       font-size: 14px;
       font-weight: 900;
@@ -456,7 +437,7 @@
     }
 
     .tip {
-      width: 260px;
+      width: 470px;
       color: #57675f;
       line-height: 1.48;
       font-size: 13px;
@@ -464,7 +445,7 @@
     }
 
     .brand {
-      width: 285px;
+      width: 410px;
       color: #35453f;
       line-height: 1.42;
       font-size: 13px;
@@ -482,7 +463,7 @@
     }
 
     .remark-cell {
-      width: 178px;
+      width: 244px;
     }
 
     .buy-check {
@@ -495,15 +476,17 @@
 
     .remark {
       width: 100%;
-      height: 36px;
-      padding: 0 10px;
+      min-height: 34px;
+      height: 34px;
+      padding: 8px 10px;
+      resize: vertical;
       border: 1px solid var(--line);
       border-radius: var(--radius);
       color: var(--ink);
       background: #fffaf1;
       outline: none;
       font-size: 13px;
-      line-height: 36px;
+      line-height: 1.35;
     }
 
     .remark::placeholder {
@@ -605,50 +588,57 @@
         align-items: flex-start;
         gap: 14px;
       }
+
+      .section p {
+        white-space: normal;
+      }
+
+      .shell {
+        width: min(100% - 24px, 1560px);
+      }
+
+      table {
+        min-width: 1280px;
+      }
     }
   </style>
 </head>
 <body>
   <main class="shell">
-    <section class="hero" aria-label="半塘孕册总览">
+    <section class="hero" aria-label="半糖孕册总览">
       <div class="title-block">
-        <div class="brand-lockup" aria-label="半塘孕册品牌标识">
+        <div class="brand-lockup" aria-label="半糖孕册品牌标识">
           <svg class="brand-mark" viewBox="0 0 96 96" role="img" aria-labelledby="logoTitle logoDesc">
-            <title id="logoTitle">半塘孕册 logo</title>
+            <title id="logoTitle">半糖孕册 logo</title>
             <desc id="logoDesc">原创抽象标识，由半弧水面、书页折线和新芽组成。</desc>
             <defs>
-              <linearGradient id="markBg" x1="18" y1="8" x2="80" y2="88" gradientUnits="userSpaceOnUse">
-                <stop offset="0" stop-color="#fff7ea"/>
-                <stop offset="0.58" stop-color="#efc0ad"/>
-                <stop offset="1" stop-color="#8fb39a"/>
+              <linearGradient id="markBg" x1="14" y1="10" x2="84" y2="84" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#fffaf2"/>
+                <stop offset="0.55" stop-color="#f4cdb6"/>
+                <stop offset="1" stop-color="#a7c8bb"/>
               </linearGradient>
-              <linearGradient id="markWater" x1="14" y1="52" x2="82" y2="52" gradientUnits="userSpaceOnUse">
-                <stop offset="0" stop-color="#70b8b8"/>
-                <stop offset="1" stop-color="#496f58"/>
+              <linearGradient id="markTone" x1="18" y1="48" x2="80" y2="58" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#eaa38f"/>
+                <stop offset="1" stop-color="#5d8f77"/>
               </linearGradient>
             </defs>
-            <path d="M48 7 C71 7 88 23 88 47 C88 72 70 89 47 89 C24 89 8 73 8 50 C8 25 25 7 48 7 Z" fill="url(#markBg)"/>
-            <path d="M18 54 C28 42 41 38 55 43 C67 47 75 45 82 38 C83 59 68 77 48 78 C31 79 19 69 18 54 Z" fill="url(#markWater)"/>
-            <path d="M27 37 C39 28 55 28 68 38" fill="none" stroke="#fffdf8" stroke-width="5" stroke-linecap="round"/>
-            <path d="M36 64 C44 57 52 57 60 64" fill="none" stroke="#fffdf8" stroke-width="4" stroke-linecap="round"/>
-            <path d="M48 31 C49 22 54 17 63 15 C62 25 57 30 48 31 Z" fill="#496f58"/>
-            <path d="M48 31 C41 27 38 21 40 13 C48 17 51 23 48 31 Z" fill="#c97766"/>
-            <path d="M48 33 L48 70" fill="none" stroke="#fffdf8" stroke-width="4" stroke-linecap="round"/>
+            <circle cx="48" cy="48" r="39" fill="url(#markBg)"/>
+            <path d="M16 55 C25 41 38 35 50 38 C61 41 71 40 80 34 C79 56 66 72 49 75 C33 77 21 68 16 55 Z" fill="url(#markTone)" opacity="0.92"/>
+            <path d="M24 48 C33 40 43 38 52 41 C61 44 69 43 76 38" fill="none" stroke="#fffdf8" stroke-width="4.5" stroke-linecap="round" opacity="0.95"/>
+            <path d="M27 58 C36 54 44 54 51 58 C58 62 66 62 74 58" fill="none" stroke="#fffdf8" stroke-width="4" stroke-linecap="round" opacity="0.9"/>
+            <path d="M43 29 C49 25 55 25 60 29 C58 36 54 40 49 42 C45 39 42 34 43 29 Z" fill="#5d8f77"/>
+            <path d="M47 31 C40 30 35 25 33 18 C40 18 45 21 47 31 Z" fill="#e1a091"/>
+            <path d="M49 31 C54 21 61 17 69 17 C67 25 61 31 49 31 Z" fill="#d9cf8e"/>
+            <path d="M48 33 L48 70" fill="none" stroke="#fffdf8" stroke-width="4.5" stroke-linecap="round"/>
           </svg>
           <div>
-            <p class="brand-name">半塘孕册</p>
+            <p class="brand-name">半糖孕册</p>
             <div class="brand-tagline">给年轻妈妈的孕产购买清单</div>
           </div>
         </div>
         <div class="hero-kicker">从孕早期到新生儿照顾</div>
         <h1>把该买的准备好，把不必囤的放一放</h1>
-        <p class="lead">按最晚准备孕周排序，覆盖怀孕必需品、生产待产包、新生儿照护三大阶段。勾选只代表“已购买”，不是要求全部购买；备注会自动保存在当前浏览器。</p>
-        <div class="hero-notes" aria-label="页面特点">
-          <span class="hero-note">孕周排序</span>
-          <span class="hero-note">建议购买量</span>
-          <span class="hero-note">品牌来源</span>
-          <span class="hero-note">本地保存</span>
-        </div>
+        <p class="lead">按阶段整理成一张清单，覆盖怀孕必需品、生产待产包、新生儿照护三大阶段。勾选只代表“已购买”，不是要求全部购买。</p>
       </div>
       <aside class="dashboard" aria-label="购买进度">
         <div class="meter">
@@ -688,7 +678,7 @@
 
     <section class="notice" aria-label="重要提示">
       <div>
-        <strong>使用提示：</strong>孕周是“最晚建议准备时间”，不是越早囤越多越好。涉及药品、营养补充剂、吸奶器、奶粉、消毒方式、产后伤口护理等，请结合产检医生、助产士或儿科医生意见。新生儿睡眠区建议保持平整、坚实、少物，避免枕头、厚被、围栏垫和松散软物。
+        <strong>使用提示：</strong>涉及药品、营养补充剂、吸奶器、奶粉、消毒方式、产后伤口护理等，请结合产检医生、助产士或儿科医生意见。新生儿睡眠区建议保持平整、坚实、少物，避免枕头、厚被、围栏垫和松散软物。
         <div class="sources">
           <span>参考：ACOG 孕产指导</span>
           <span>CDC 母乳喂养与吸奶清洁</span>
@@ -864,6 +854,7 @@
       "new-trash": "1个"
     };
 
+
     const storageKey = "pregnancyMamaChecklistV1";
     const state = JSON.parse(localStorage.getItem(storageKey) || "{}");
     const sectionEl = document.querySelector("#sections");
@@ -913,7 +904,7 @@
           .sort((a, b) => a[2] - b[2] || a[3].localeCompare(b[3], "zh-CN") || a[1].localeCompare(b[1], "zh-CN"))
           .filter(item => {
             const itemState = state[item[0]] || {};
-            const blob = [item[1], item[2] + "周", item[3], item[4], item[5], quantitySuggestions[item[0]], itemState.remark || ""].join(" ").toLowerCase();
+            const blob = [item[1], item[2] + "周", item[3], quantitySuggestions[item[0]], item[5], itemState.remark || ""].join(" ").toLowerCase();
             const matchKeyword = !keyword || blob.includes(keyword);
             const matchSection = activeFilter === "all" || activeFilter === section.id;
             return matchKeyword && matchSection;
@@ -937,13 +928,12 @@
             <table>
               <thead>
                 <tr>
+                  <th class="week">孕周</th>
                   <th class="check-cell">已购</th>
-                  <th class="week">最晚购买时间</th>
                   <th class="group">用途</th>
                   <th class="item">物品中文名称</th>
-                  <th class="quantity">建议购买量</th>
-                  <th class="tip">专业备注</th>
-                  <th class="brand">推荐品牌<span class="subhead">含推荐来源</span></th>
+                  <th class="quantity">购买数量</th>
+                  <th class="brand">品牌来源</th>
                   <th class="remark-cell">备注</th>
                 </tr>
               </thead>
@@ -954,19 +944,18 @@
 
         const tbody = sectionNode.querySelector("tbody");
         filtered.forEach(item => {
-          const [id, name, week, group, tip] = item;
+          const [id, name, week, group] = item;
           const itemState = state[id] || {};
           const row = document.createElement("tr");
           if (itemState.done) row.classList.add("done");
           row.innerHTML = `
-            <td class="check-cell"><input class="buy-check" type="checkbox" aria-label="${name} 已购买" ${itemState.done ? "checked" : ""}></td>
             <td class="week">孕 ${week} 周前</td>
+            <td class="check-cell"><input class="buy-check" type="checkbox" aria-label="${name} 已购买" ${itemState.done ? "checked" : ""}></td>
             <td class="group">${group}</td>
             <td class="item">${name}</td>
             <td class="quantity">${quantitySuggestions[id] || "按需"}</td>
-            <td class="tip">${tip}</td>
             <td class="brand">${formatBrand(item[5])}</td>
-            <td class="remark-cell"><input class="remark" type="text" placeholder="备注" value="${escapeHtml(itemState.remark || "")}"></td>
+            <td class="remark-cell"><textarea class="remark" placeholder="备注">${escapeHtml(itemState.remark || "")}</textarea></td>
           `;
 
           row.querySelector(".buy-check").addEventListener("change", event => {
@@ -1024,3 +1013,4 @@
   </script>
 </body>
 </html>
+
