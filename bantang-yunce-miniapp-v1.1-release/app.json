@@ -1,0 +1,19 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/checklist/checklist",
+    "pages/mine/mine",
+    "pages/auth/auth",
+    "pages/privacy/privacy",
+    "pages/feedback/feedback",
+    "pages/admin/admin"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fffaf1",
+    "navigationBarTitleText": "半糖孕册",
+    "navigationBarTextStyle": "black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

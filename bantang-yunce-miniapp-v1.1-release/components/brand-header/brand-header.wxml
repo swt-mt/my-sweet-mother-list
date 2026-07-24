@@ -1,0 +1,30 @@
+<view class="brand-header {{compact ? 'is-compact' : ''}}">
+  <view class="brand-left">
+    <view class="brand-mark" aria-hidden="true">
+      <view class="mark-circle"></view>
+      <view class="mark-wave mark-wave-a"></view>
+      <view class="mark-wave mark-wave-b"></view>
+      <view class="mark-stem"></view>
+      <view class="mark-leaf mark-leaf-a"></view>
+      <view class="mark-leaf mark-leaf-b"></view>
+    </view>
+    <view class="brand-copy">
+      <text class="brand-name">半糖孕册</text>
+      <text class="brand-tagline">{{subtitle}}</text>
+    </view>
+  </view>
+
+  <view wx:if="{{auth}}" class="auth-panel" bindtap="onAuthTap">
+    <view class="auth-avatar {{auth.loggedIn ? 'is-logged' : 'is-guest'}}">
+      <image wx:if="{{auth.loggedIn && auth.avatar}}" class="auth-image" src="{{auth.avatar}}" mode="aspectFill"></image>
+      <view wx:elif="{{auth.loggedIn}}" class="auth-default">
+        <view class="default-orb orb-a"></view>
+        <view class="default-orb orb-b"></view>
+        <view class="default-bar"></view>
+      </view>
+      <text wx:else class="guest-text">未登录</text>
+    </view>
+    <text wx:if="{{auth.loggedIn}}" class="auth-name">{{auth.name || '妈妈'}}</text>
+    <text wx:else class="auth-name auth-name--guest">登录 / 注册</text>
+  </view>
+</view>

@@ -1,0 +1,5 @@
+<view class="site-nav card">
+  <view wx:for="{{items}}" wx:key="id" class="site-nav__item {{current === item.id ? 'active' : ''}}" data-path="{{item.path}}" bindtap="go">
+    <text>{{item.label}}</text>
+  </view>
+</view>
