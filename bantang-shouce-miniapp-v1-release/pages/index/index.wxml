@@ -1,0 +1,47 @@
+<view class="page page--home">
+  <view class="shell">
+    <view class="hero card">
+      <brand-header subtitle="给妈妈的孕产准备工具" compact="{{false}}"></brand-header>
+      <view class="hero-copy">
+        <text class="hero-title">怀孕、生产、新生儿照顾，一张清单慢慢准备。</text>
+        <text class="hero-lead">半糖手册把怀孕、生产和新生儿用品放在同一个页面里。少一点焦虑囤货，多一点按阶段准备。</text>
+      </view>
+    </view>
+
+    <view class="section card progress-card">
+      <view class="progress-top">
+        <view>
+          <text class="section-title">整体进度</text>
+          <text class="section-subtitle">已勾选、已写备注、已准备的状态都能一眼看到。</text>
+        </view>
+        <text class="progress-rate">{{completionRate}}%</text>
+      </view>
+      <view class="progress-bar"><view class="progress-bar__inner" style="width: {{completionRate}}%;"></view></view>
+      <view class="stats-grid">
+        <view wx:for="{{stats}}" wx:key="label" class="stat">
+          <text class="stat-value">{{item.value}}</text>
+          <text class="stat-label">{{item.label}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="section card info-card">
+      <view class="section-head">
+        <view>
+          <text class="section-title">三阶段</text>
+          <text class="section-subtitle">按准备顺序拆开看，每一步都更清楚。</text>
+        </view>
+        <text class="pill">{{completionRate}}% 完成</text>
+      </view>
+      <view class="stage-grid">
+        <view wx:for="{{highlightCards}}" wx:key="id" class="stage-card" data-stage="{{item.id}}" bindtap="openStage">
+          <text class="stage-title">{{item.order}}.{{item.title}}</text>
+          <text class="stage-count">{{item.done}} / {{item.count}} 项已完成</text>
+          <text class="stage-rate">{{item.rate}}%</text>
+        </view>
+      </view>
+    </view>
+
+    <site-nav current="index"></site-nav>
+  </view>
+</view>

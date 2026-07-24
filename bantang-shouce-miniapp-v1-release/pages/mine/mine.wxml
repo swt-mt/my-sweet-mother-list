@@ -1,0 +1,64 @@
+<view class="page">
+  <view class="shell">
+    <brand-header subtitle="记录个人状态、导出清单和反馈入口" compact="{{true}}" auth="{{auth}}" loginUrl="/pages/auth/auth"></brand-header>
+
+    <view class="section card profile-card">
+      <view class="section-head">
+        <view>
+          <text class="section-title">我的孕产信息</text>
+          <text class="section-subtitle">这些内容决定清单的提醒、摘要和后续同步。</text>
+        </view>
+      </view>
+      <view class="profile-grid">
+        <view>
+          <text class="field-label">预产期</text>
+          <input class="input" type="date" value="{{profile.dueDate}}" data-field="dueDate" bindinput="onProfileInput" disabled="{{!auth.loggedIn}}"></input>
+        </view>
+        <view>
+          <text class="field-label">当前孕周</text>
+          <input class="input" type="number" value="{{profile.week}}" data-field="week" bindinput="onProfileInput" disabled="{{!auth.loggedIn}}"></input>
+        </view>
+      </view>
+    </view>
+
+    <view class="section card summary-card">
+      <view class="grid-4">
+        <view class="stat"><text class="stat-value">{{summary.total}}</text><text class="stat-label">清单项目</text></view>
+        <view class="stat"><text class="stat-value">{{summary.doneCount}}</text><text class="stat-label">已勾选</text></view>
+        <view class="stat"><text class="stat-value">{{summary.remarkCount}}</text><text class="stat-label">有备注</text></view>
+        <view class="stat"><text class="stat-value">{{summary.rate}}%</text><text class="stat-label">完成率</text></view>
+      </view>
+      <view class="stage-mini-grid">
+        <view wx:for="{{stageCards}}" wx:key="id" class="stage-mini stat"><text class="stat-value">{{item.rate}}%</text><text class="stat-label">{{item.name}} · {{item.done}} / {{item.count}}</text></view>
+      </view>
+    </view>
+
+    <view class="section card tools-card">
+      <view class="section-head">
+        <view>
+          <text class="section-title">我的工具</text>
+          <text class="section-subtitle">复制、恢复和登录入口都放在这里。</text>
+        </view>
+      </view>
+      <view class="tool-list">
+        <view class="tool-row" bindtap="copySummary"><text class="tool-title">复制准备摘要</text><text class="tool-desc">给家人、医生或陪产人快速查看</text></view>
+        <view class="tool-row" bindtap="restoreDefault"><text class="tool-title">恢复默认状态</text><text class="tool-desc">重置个人信息和勾选状态</text></view>
+        <view wx:else class="tool-row" bindtap="goAuth"><text class="tool-title">登录 / 注册</text><text class="tool-desc">微信账号或手机号登录后才能使用</text></view>
+      </view>
+    </view>
+
+    <view class="section card settings-card">
+      <view class="section-head">
+        <view>
+          <text class="section-title">我的设置</text>
+          <text class="section-subtitle">清单页面显示的信息设置。</text>
+        </view>
+      </view>
+      <view wx:if="{{auth.loggedIn}}" class="setting-row" bindtap="logout"><view><text class="tool-title">退出登录</text><text class="tool-desc">清除本机登录状态</text></view><text class="setting-action">退出</text></view>
+    </view>
+
+    <view class="section card feedback-card" bindtap="goFeedback"><text class="section-title">意见反馈</text><text class="section-subtitle">功能建议、内容纠错、品牌补充和使用问题都从这里进入。</text><view class="btn btn-primary feedback-btn">提交反馈</view></view>
+
+    <site-nav current="mine"></site-nav>
+  </view>
+</view>

@@ -1,0 +1,136 @@
+<view class="page page--admin">
+  <view class="shell">
+    <view class="admin-hero card">
+      <brand-header subtitle="发布者控制台：PV、UV、反馈、版本" compact="{{true}}"></brand-header>
+      <view class="admin-hero__copy">
+        <text class="admin-hero__eyebrow">管理者页面</text>
+        <text class="admin-hero__lead">查看访问、完成和反馈处理状态，把用户问题和发版记录放在同一处。</text>
+        <view class="admin-hero__chips">
+          <text class="pill">PV / UV</text>
+          <text class="pill">反馈</text>
+          <text class="pill">版本</text>
+        </view>
+      </view>
+    </view>
+
+    <view wx:if="{{!unlocked}}" class="section card unlock-card">
+      <view class="section-head">
+        <view>
+          <text class="section-title">管理者入口</text>
+          <text class="section-subtitle">这是发布者控制台，先输入演示密码进入。</text>
+        </view>
+      </view>
+      <input class="input unlock-input" password placeholder="演示密码：bantang2026" value="{{password}}" bindinput="onPasswordInput"></input>
+      <view class="btn btn-primary unlock-btn" bindtap="unlock">进入控制台</view>
+    </view>
+
+    <block wx:else>
+      <view class="section card kpi-card">
+        <view class="section-head">
+          <view>
+            <text class="section-title">实时总览</text>
+            <text class="section-subtitle">当前设备里记录的访问、完成和反馈都在这里。</text>
+          </view>
+          <text class="pill">发布者视图</text>
+        </view>
+        <view class="grid-4 dashboard-kpis">
+          <view wx:for="{{summary.kpis}}" wx:for-item="metric" wx:key="label" class="stat dashboard-stat">
+            <text class="stat-value">{{metric.value}}</text>
+            <text class="stat-label">{{metric.label}}</text>
+          </view>
+        </view>
+      </view>
+
+      <view class="section card trend-card">
+        <view class="section-head">
+          <view>
+            <text class="section-title">行为漏斗</text>
+            <text class="section-subtitle">首页 -> 清单 -> 勾选 -> 备注 -> 反馈。</text>
+          </view>
+        </view>
+        <view class="funnel-list">
+          <view wx:for="{{summary.funnel}}" wx:for-item="step" wx:for-index="idx" wx:key="label" class="funnel-row">
+            <view class="funnel-label-wrap">
+              <text class="funnel-index">{{idx + 1}}</text>
+              <text class="funnel-label">{{step.label}}</text>
+            </view>
+            <view class="funnel-track">
+              <view class="funnel-fill" style="width: {{step.value}}%;"></view>
+            </view>
+            <text class="funnel-value">{{step.value}}%</text>
+          </view>
+        </view>
+      </view>
+
+      <view class="section card feedback-card feedback-card--wide">
+        <view class="section-head">
+          <view>
+            <text class="section-title">反馈管理</text>
+            <text class="section-subtitle">按类型查看进度，回复后用户反馈页会展示回复内容。</text>
+          </view>
+        </view>
+        <view class="grid-3 feedback-stats">
+          <view wx:for="{{summary.feedbackStats}}" wx:for-item="stat" wx:key="label" class="stat feedback-stat">
+            <text class="stat-value">{{stat.value}}</text>
+            <text class="stat-label">{{stat.label}}</text>
+          </view>
+        </view>
+        <view class="feedback-group-list">
+          <view wx:for="{{summary.feedbackGroups}}" wx:for-item="group" wx:key="id" class="feedback-group">
+            <view class="group-head" data-type="{{group.id}}" bindtap="toggleFeedbackGroup">
+              <view class="group-title-wrap">
+                <text class="group-title">{{group.name}}</text>
+                <text class="group-meta">已处理{{group.handled}}/{{group.total}}</text>
+              </view>
+              <text class="group-toggle">{{group.expanded ? '收起' : '展开'}}</text>
+            </view>
+            <view class="group-bar">
+              <view class="group-bar__inner" style="width: {{group.rate}}%;"></view>
+            </view>
+            <view wx:if="{{group.expanded}}" class="feedback-detail-list">
+              <view wx:if="{{group.items.length === 0}}" class="feedback-empty">暂无这类反馈</view>
+              <view wx:for="{{group.items}}" wx:for-item="feedback" wx:key="id" class="feedback-detail">
+                <view class="detail-top">
+                  <text class="detail-user">{{feedback.userName}}</text>
+                  <text class="detail-id">{{feedback.id}}</text>
+                </view>
+                <text class="detail-question" data-id="{{feedback.id}}" bindtap="openFeedbackDetail">{{feedback.content}}</text>
+                <text class="detail-reply">回复内容：{{feedback.reply || '未回复'}}</text>
+                <view wx:if="{{!feedback.reply}}" class="reply-row">
+                  <textarea class="reply-input" placeholder="填写回复内容" value="{{feedback.replyValue}}" data-id="{{feedback.id}}" bindinput="onReplyInput"></textarea>
+                  <view class="reply-btn" data-id="{{feedback.id}}" bindtap="submitReply">提交回复</view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class="section card version-card">
+        <view class="section-head">
+          <view>
+            <text class="section-title">版本管理</text>
+            <text class="section-subtitle">管理者可以手动填写版本号、发版时间和更新内容，保存后写入本地。</text>
+          </view>
+        </view>
+        <view class="version-form">
+          <view class="version-field">
+            <text class="field-label">版本号</text>
+            <input class="input version-input" placeholder="例如：v0.5.0" value="{{versionDraft.version}}" data-field="version" bindinput="onVersionFieldInput"></input>
+          </view>
+          <view class="version-field">
+            <text class="field-label">发版时间</text>
+            <input class="input version-input" placeholder="例如：2026-07-23" value="{{versionDraft.releaseTime}}" data-field="releaseTime" bindinput="onVersionFieldInput"></input>
+          </view>
+          <view class="version-field">
+            <text class="field-label">更新内容</text>
+            <textarea class="textarea version-textarea" placeholder="每行一条更新内容" value="{{versionDraft.updatesText}}" data-field="updatesText" bindinput="onVersionFieldInput"></textarea>
+          </view>
+          <view class="btn btn-primary version-save" bindtap="saveVersion">保存版本</view>
+        </view>
+      </view>
+    </block>
+
+    <site-nav current="mine"></site-nav>
+  </view>
+</view>

@@ -1,0 +1,3 @@
+.site-nav { position: sticky; bottom: 24rpx; z-index: 30; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12rpx; margin-top: 30rpx; padding: 12rpx; backdrop-filter: blur(18rpx); }
+.site-nav__item { display: flex; align-items: center; justify-content: center; min-height: 78rpx; border-radius: 22rpx; color: #637169; background: rgba(255, 253, 248, 0.88); font-size: 26rpx; font-weight: 700; }
+.site-nav__item.active { color: #fffaf1; background: #415f4b; }

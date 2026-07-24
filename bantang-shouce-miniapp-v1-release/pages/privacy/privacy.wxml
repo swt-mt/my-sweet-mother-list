@@ -1,0 +1,60 @@
+<view class="page">
+  <view class="shell">
+    <brand-header subtitle="用户隐私协议" compact="{{true}}" auth="{{auth}}" loginUrl="/pages/auth/auth"></brand-header>
+
+    <view class="section card privacy-content">
+      <text class="section-title">半糖手册用户隐私协议</text>
+      <text class="meta">生效日期：2026-07-23</text>
+      <text class="paragraph">本协议适用于半糖手册小程序及相关页面。我们重视用户隐私，并尽量采用本地保存、最小必要收集的方式提供服务。</text>
+
+      <view class="policy-block">
+        <text class="policy-title">一、我们收集的信息</text>
+        <text class="paragraph">1. 账号信息：昵称、头像、本机登录状态、登录方式、登录时间；手机号登录时会记录手机号。</text>
+        <text class="paragraph">2. 孕产信息：预产期、当前孕周、清单阶段、清单勾选状态、备注、提醒时间和页面显示设置。</text>
+        <text class="paragraph">3. 反馈信息：反馈类型、来源页面、关联物品、反馈内容、图片、联系方式和提交时间。</text>
+        <text class="paragraph">4. 使用统计：页面访问、功能点击、勾选、备注、反馈等事件，用于 PV、UV、完成率和功能优化分析。</text>
+      </view>
+
+      <view class="policy-block">
+        <text class="policy-title">二、我们如何使用信息</text>
+        <text class="paragraph">我们使用上述信息用于注册登录、展示用户身份、保存清单进度、生成准备摘要、处理用户反馈、改进页面体验和保障基础功能稳定。</text>
+      </view>
+
+      <view class="policy-block">
+        <text class="policy-title">三、信息存储与安全</text>
+        <text class="paragraph">当前版本默认将账号状态、清单数据、个人设置和反馈内容保存在用户当前设备本地。除非后续另行接入云服务并取得授权，否则不会主动上传到服务器。</text>
+        <text class="paragraph">我们会尽合理努力保护数据安全，但请避免在备注和反馈中填写身份证号、银行卡号、详细病历等高度敏感信息。</text>
+      </view>
+
+      <view class="policy-block">
+        <text class="policy-title">四、第三方与共享</text>
+        <text class="paragraph">我们不会出售、出租或无关共享你的个人信息。因法律法规、监管要求、用户主动授权或维护合法权益所必需时，可能依法进行披露。</text>
+      </view>
+
+      <view class="policy-block">
+        <text class="policy-title">五、注册登录说明</text>
+        <text class="paragraph">你可以选择微信账号或手机号登录。未登录时可浏览清单内容；登录后才可使用勾选、备注、设置、反馈、复制摘要等涉及个人数据写入的功能。</text>
+      </view>
+
+      <view class="policy-block">
+        <text class="policy-title">六、权限调用</text>
+        <text class="paragraph">选择头像时，我们会在调用相册或相机前提示你是否允许访问本地媒体文件。你可以拒绝授权；拒绝后仍可使用默认头像，不影响浏览清单。</text>
+      </view>
+
+      <view class="policy-block">
+        <text class="policy-title">七、你的权利</text>
+        <text class="paragraph">你可以查看、修改、删除本机清单数据，退出登录，或通过设备设置清除本地缓存。你也可以通过意见反馈提出数据处理相关问题。</text>
+      </view>
+
+      <view class="policy-block">
+        <text class="policy-title">八、未成年人保护</text>
+        <text class="paragraph">本产品主要面向备孕、怀孕及育儿家庭。未成年人应在监护人指导下使用，不建议提交个人敏感信息。</text>
+      </view>
+
+      <view class="policy-block">
+        <text class="policy-title">九、协议更新</text>
+        <text class="paragraph">如产品功能、数据处理方式或法律要求发生变化，我们会更新本协议。更新后继续使用，即视为接受更新内容。</text>
+      </view>
+    </view>
+  </view>
+</view>

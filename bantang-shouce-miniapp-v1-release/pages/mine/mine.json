@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "brand-header": "/components/brand-header/brand-header",
+    "site-nav": "/components/site-nav/site-nav"
+  }
+}

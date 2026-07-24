@@ -1,0 +1,57 @@
+.toolbar-card, .checklist-section, .empty-card { padding: 22rpx; margin-top: 24rpx; }
+.search { margin-bottom: 18rpx; }
+.stage-tabs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12rpx; }
+.stage-tab { display: flex; align-items: center; justify-content: center; min-height: 72rpx; border-radius: 20rpx; background: #f4eadb; color: #24302c; font-size: 24rpx; font-weight: 700; }
+.stage-tab.active { color: #fffaf1; background: #415f4b; }
+.purchase-tabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12rpx; margin-top: 14rpx; }
+.purchase-tab { display: flex; align-items: center; justify-content: center; min-height: 72rpx; border-radius: 20rpx; background: #f4eadb; color: #24302c; font-size: 24rpx; font-weight: 700; }
+.purchase-tab.active { color: #fffaf1; background: #78927d; }
+.purchase-tab.clear { background: #f5d8d3; color: #8f5147; }
+.purchase-tab.clear.active { color: #fffaf1; background: #c97766; }
+.toolbar-summary { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14rpx; margin-top: 18rpx; }
+.toolbar-stat { padding: 18rpx; }
+.item-card { margin-top: 18rpx; padding: 18rpx; border-radius: 24rpx; background: #fffaf1; border: 1rpx solid rgba(223, 214, 197, 0.88); }
+.item-card.done { background: rgba(120, 146, 125, 0.12); }
+.item-top { display: flex; align-items: flex-start; gap: 14rpx; }
+.item-main { flex: 1; min-width: 0; }
+.item-name { display: block; font-size: 30rpx; font-weight: 800; line-height: 1.28; }
+.item-qty { display: block; margin-top: 8rpx; color: #637169; font-size: 24rpx; }
+.week-pill { flex: 0 0 auto; padding: 10rpx 14rpx; border-radius: 999rpx; color: #415f4b; background: rgba(120, 146, 125, 0.12); font-size: 22rpx; font-weight: 700; }
+.detail-list { display: grid; gap: 12rpx; margin-top: 16rpx; }
+.detail-frame {
+  display: flex;
+  align-items: flex-start;
+  gap: 12rpx;
+  min-height: 80rpx;
+  padding: 14rpx 16rpx;
+  border-radius: 20rpx;
+  border: 1rpx solid rgba(223, 214, 197, 0.88);
+  background: rgba(255, 250, 241, 0.94);
+}
+.detail-label {
+  flex: 0 0 132rpx;
+  color: #415f4b;
+  font-size: 22rpx;
+  font-weight: 800;
+  line-height: 1.5;
+}
+.detail-value {
+  flex: 1;
+  min-width: 0;
+  color: #57675f;
+  font-size: 22rpx;
+  line-height: 1.5;
+  word-break: break-all;
+}
+.remark {
+  margin-top: 0;
+  min-height: 90rpx;
+  padding: 14rpx 16rpx;
+  color: #9da8a0;
+  font-size: 22rpx;
+  line-height: 1.5;
+  border-radius: 20rpx;
+  resize: vertical;
+  overflow: auto;
+}
+@media (max-width: 720rpx) { .stage-tabs, .purchase-tabs, .toolbar-summary { grid-template-columns: repeat(2, minmax(0, 1fr)); } .week-pill { display: none; } }

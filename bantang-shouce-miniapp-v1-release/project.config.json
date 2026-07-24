@@ -1,0 +1,30 @@
+{
+    "description":  "半糖手册微信小程序正式版",
+    "packOptions":  {
+                        "ignore":  [
+
+                                   ]
+                    },
+    "setting":  {
+                    "urlCheck":  true,
+                    "es6":  true,
+                    "postcss":  true,
+                    "minified":  true,
+                    "enhance":  true,
+                    "showShadowRootInWxmlPanel":  true,
+                    "compileHotReLoad":  true,
+                    "useCompilerPlugins":  false
+                },
+    "appid":  "wx6ef83bd69720b02f",
+    "compileType":  "miniprogram",
+    "miniprogramRoot":  "./",
+    "projectname":  "bantang-shouce-miniapp",
+    "condition":  {
+                      "miniprogram":  {
+                                          "current":  -1,
+                                          "list":  [
+
+                                                   ]
+                                      }
+                  }
+}
