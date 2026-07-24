@@ -1,0 +1,32 @@
+<view class="page">
+  <view class="shell">
+    <brand-header subtitle="给妈妈留一条直接反馈路径" compact="{{true}}" auth="{{auth}}" loginUrl="/pages/auth/auth"></brand-header>
+
+    <view class="section card feedback-form">
+      <view class="section-head"><view><text class="section-title">意见反馈</text><text class="section-subtitle">功能建议、内容纠错、品牌补充、使用问题都能提交。</text></view></view>
+      <view class="form-block"><text class="field-label">反馈类型</text><radio-group bindchange="onTypeChange" class="radio-grid"><label wx:for="{{feedbackTypes}}" wx:key="id" class="radio-item"><radio value="{{item.id}}" checked="{{item.id === form.type}}"></radio><text>{{item.name}}</text></label></radio-group></view>
+      <view class="form-block"><text class="field-label">来源页面</text><picker mode="selector" range="{{pageSources}}" range-key="name" bindchange="onSourceChange"><view class="input picker-value">{{sourceLabel}}</view></picker><text class="field-hint">首页/清单页/我的/注册登录页/意见反馈页</text></view>
+      <view class="form-block"><text class="field-label">关联物品/内容/功能</text><input class="input related-input" placeholder="比如：叶酸/进度条/备注框等" value="{{form.itemName}}" bindinput="onItemNameInput"></input></view>
+      <view class="form-block"><text class="field-label">反馈内容</text><textarea class="textarea" auto-height placeholder="写清楚问题、建议或你希望新增的内容" value="{{form.content}}" bindinput="onContentInput"></textarea></view>
+      <view class="form-block"><text class="field-label">截图 / 图片（可选）</text><view class="image-grid"><view wx:for="{{images}}" wx:key="*this" class="image-tile" data-src="{{item}}" bindtap="previewImage"><image class="image-preview" mode="aspectFill" src="{{item}}"></image></view><view class="image-add" bindtap="chooseImage">+</view></view></view>
+      <view class="form-block"><text class="field-label">联系方式（可选）</text><input class="input contact-input" placeholder="微信号或邮箱" value="{{form.contact}}" bindinput="onContactInput"></input></view>
+      <view class="btn btn-primary submit-btn" bindtap="submit">提交反馈</view>
+    </view>
+
+    <view wx:if="{{feedbackRecords.length > 0}}" class="section card record-card">
+      <view class="section-head"><view><text class="section-title">我的反馈记录</text><text class="section-subtitle">提交后默认显示处理中，管理员回复后这里展示回复内容。</text></view></view>
+      <view class="record-list">
+        <view wx:for="{{feedbackRecords}}" wx:key="id" class="record-row {{item.highlighted ? 'highlighted' : ''}}">
+          <view class="record-top">
+            <text class="record-id">{{item.id}}</text>
+            <text class="record-status">{{item.statusText}}</text>
+          </view>
+          <view class="record-field"><text class="record-label">关联：</text><text class="record-value">{{item.itemName || '未填写'}}</text></view>
+          <view class="record-field"><text class="record-label">反馈：</text><text class="record-value">{{item.content}}</text></view>
+        </view>
+      </view>
+    </view>
+
+    <site-nav current="mine"></site-nav>
+  </view>
+</view>

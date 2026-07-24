@@ -1,0 +1,71 @@
+<view class="page">
+  <view class="shell">
+    <brand-header subtitle="给妈妈的孕产购买清单" compact="{{true}}" auth="{{auth}}" loginUrl="/pages/auth/auth"></brand-header>
+
+    <view class="section card toolbar-card">
+      <input class="input search" placeholder="搜索物品、用途、品牌建议、备注" value="{{keyword}}" bindinput="onKeywordInput"></input>
+      <view class="stage-tabs">
+        <view wx:for="{{stageTabs}}" wx:for-item="stage" wx:key="id" class="stage-tab {{activeStage === stage.id ? 'active' : ''}}" data-stage="{{stage.id}}" bindtap="switchStage">
+          <text>{{stage.name}}</text>
+        </view>
+      </view>
+      <view class="purchase-tabs">
+        <view wx:for="{{purchaseTabs}}" wx:for-item="tab" wx:key="id" class="purchase-tab {{purchaseFilter === tab.id ? 'active' : ''}} {{tab.id === 'clear' ? 'clear' : ''}}" data-filter="{{tab.id}}" bindtap="switchPurchaseFilter">
+          <text>{{tab.name}}</text>
+        </view>
+      </view>
+      <view class="toolbar-summary">
+        <view class="stat toolbar-stat"><text class="stat-value">{{overview.rate}}%</text><text class="stat-label">总完成率</text></view>
+        <view class="stat toolbar-stat"><text class="stat-value">{{overview.doneCount}}</text><text class="stat-label">已勾选</text></view>
+        <view class="stat toolbar-stat"><text class="stat-value">{{overview.remarkCount}}</text><text class="stat-label">有备注</text></view>
+      </view>
+    </view>
+
+    <view wx:if="{{sections.length === 0}}" class="section card empty-card">
+      <text class="section-title">没有匹配的内容</text>
+      <text class="section-subtitle">换一个关键词，或者切回“全部”再看。</text>
+    </view>
+
+    <view wx:for="{{sections}}" wx:for-item="section" wx:key="id" class="section card checklist-section">
+      <view class="section-head section-head--toggle" data-id="{{section.id}}" bindtap="toggleSection">
+        <view>
+          <text class="section-title">{{section.title}}</text>
+          <text class="section-subtitle">{{section.intro}}</text>
+        </view>
+        <view class="section-actions">
+          <text class="pill">{{section.count}} 项</text>
+          <text class="section-toggle">{{section.expanded ? '收起' : '展开'}}</text>
+        </view>
+      </view>
+
+      <view wx:if="{{!section.expanded}}" class="collapsed-hint">点击展开查看这一类物品清单</view>
+
+      <block wx:if="{{section.expanded}}">
+        <view wx:for="{{section.items}}" wx:for-item="subitem" wx:key="id" class="item-card {{section.compact ? 'compact' : ''}} {{subitem.done ? 'done' : ''}}">
+          <view class="item-top">
+            <view class="toggle {{subitem.done ? 'checked' : ''}}" data-id="{{subitem.id}}" bindtap="toggleDone"></view>
+            <view class="item-main">
+              <text class="item-name">{{subitem.name}}</text>
+              <text class="item-qty">{{subitem.quantity}}</text>
+            </view>
+            <text class="week-pill">孕 {{subitem.week}} 周前</text>
+          </view>
+
+          <view class="detail-list">
+            <view class="detail-frame">
+              <text class="detail-label">用途：</text>
+              <text class="detail-value">{{subitem.summaryText}}</text>
+            </view>
+            <view wx:if="{{settings.showBrandSource}}" class="detail-frame">
+              <text class="detail-label">品牌建议：</text>
+              <text class="detail-value">{{subitem.brandLabels}}</text>
+            </view>
+            <textarea class="textarea remark" disabled="{{!auth.loggedIn}}" placeholder-style="color:#9da8a0;" placeholder="{{auth.loggedIn ? '备注：可写尺码、颜色、医院要求、替代品牌' : '登录后可填写备注'}}" value="{{subitem.remark}}" data-id="{{subitem.id}}" bindinput="onRemarkInput"></textarea>
+          </view>
+        </view>
+      </block>
+    </view>
+
+    <site-nav current="checklist"></site-nav>
+  </view>
+</view>

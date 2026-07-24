@@ -1,0 +1,4 @@
+{
+  "desc": "半糖孕册小程序原型",
+  "rules": [ { "action": "allow", "page": "*" } ]
+}
